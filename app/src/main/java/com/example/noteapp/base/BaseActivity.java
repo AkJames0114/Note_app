@@ -6,7 +6,10 @@ import android.view.Menu;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
+
+import com.example.noteapp.R;
 
 public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActivity {
 
@@ -14,11 +17,36 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
 
     protected abstract VB inflateViewBinding(LayoutInflater inflater);
 
+    public boolean hasActionBar() {
+        return false;
+    }
+    public boolean hasBackButton(){
+        return false;
+    }
+    public int getBackButtonIcon(){
+        return 0;
+    }
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = inflateViewBinding(getLayoutInflater());
         setContentView(binding.getRoot());
+        if (hasActionBar()) {
+            Toolbar toolbar = binding.getRoot().findViewById(R.id.toolbar);
+            if (toolbar != null)
+                setSupportActionBar(toolbar);
+        }
+        if (hasBackButton()){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            if (getBackButtonIcon()!=0)
+            {
+                getSupportActionBar().setHomeAsUpIndicator(getDrawable(getBackButtonIcon()));
+            }
+
+        }
+
 
     }
 }
