@@ -17,20 +17,11 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Registration");
     }
 
     @Override
     public boolean hasActionBar() {
         return true;
-    }
-
-    @Override
-    public boolean hasBackButton() {
-        return true;
-    }
-
-    @Override
-    public int getBackButtonIcon() {
-        return R.drawable.ic_back_btn;
     }
 }

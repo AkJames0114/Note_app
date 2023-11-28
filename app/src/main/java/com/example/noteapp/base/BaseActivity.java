@@ -44,9 +44,14 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
             {
                 getSupportActionBar().setHomeAsUpIndicator(getDrawable(getBackButtonIcon()));
             }
-
         }
-
-
+    }
+    public void setTitle(int titleId){
+        if (getSupportActionBar()!=null)
+            getSupportActionBar().setTitle(titleId);
+    }
+    public void setTitle(String title){
+        if (getSupportActionBar()!=null)
+            getSupportActionBar().setTitle(title);
     }
 }
