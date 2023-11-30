@@ -76,11 +76,11 @@
             android:hint="Email" />
 
         <EditText
-            android:id="@+id/passcodeEditText"
+            android:id="@+id/passCodeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
-            android:hint="Passcode"
+            android:hint="PassCode"
             android:inputType="numberPassword"
             android:maxLength="4" />
 

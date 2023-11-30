@@ -1,6 +1,8 @@
 package com.example.noteapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -12,7 +14,7 @@ import com.example.noteapp.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
 
-    private boolean isRegistered = false;
+    private Boolean isRegistered = false;
 
     @Override
     protected ActivitySplashBinding inflateViewBinding(LayoutInflater inflater) {
@@ -23,8 +25,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
+        isRegistered = (Boolean) preferenceManager.getValue(Boolean.class, "isRegistered",false);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

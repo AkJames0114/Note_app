@@ -14,7 +14,15 @@ public abstract class BaseFragment<VB extends ViewBinding> extends Fragment {
 
     protected VB binding;
 
+    protected BaseActivity baseActivity;
+
     protected abstract VB inflaterViewBinding(LayoutInflater layoutInflater, ViewGroup container, boolean toAttachParent);
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        baseActivity=(BaseActivity) getActivity();
+    }
 
     @Nullable
     @Override
