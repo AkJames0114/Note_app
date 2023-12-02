@@ -43,7 +43,16 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding> {
                 }
             }
         });
+        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
+
 
     @Override
     public boolean hasActionBar() {

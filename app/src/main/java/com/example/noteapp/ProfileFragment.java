@@ -36,8 +36,7 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> {
         binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getContext().getSharedPreferences("NoteAp", MODE_PRIVATE);
-                sharedPreferences.edit().clear().apply();
+                baseActivity.preferenceManager.clear();
                 Intent intent=new Intent(getContext(),RegisterActivity.class);
                 startActivity(intent);
             }

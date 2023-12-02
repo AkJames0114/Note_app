@@ -9,5 +9,7 @@
         <item name="android:textColorSecondary">@color/white</item>
     </style>
 
-    <style name="Theme.NoteApp" parent="Base.Theme.NoteApp" />
+    <style name="Theme.NoteApp" parent="Base.Theme.NoteApp"/>
+
+
 </resources>

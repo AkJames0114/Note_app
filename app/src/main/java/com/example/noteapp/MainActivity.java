@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.noteapp.base.BaseActivity;
@@ -38,6 +39,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             }
         });
     }
+
 
     private void replaceFragment(int tabId) {
         if (tabId == R.id.noteTab) {
