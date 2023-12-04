@@ -69,6 +69,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
 
         if (!myPasscode.isEmpty() && !passcode.isEmpty()) {
             if (myPasscode.equals(passcode)) {
+                preferenceManager.setValue("isLogin", true);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }

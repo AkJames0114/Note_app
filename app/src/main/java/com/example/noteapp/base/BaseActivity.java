@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 
 import com.example.noteapp.R;
+import com.example.noteapp.db.DataBaseHelper;
 import com.example.noteapp.util.PreferenceManager;
 
 public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActivity {
@@ -17,6 +18,7 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
     protected VB binding;
 
     public PreferenceManager preferenceManager;
+    public DataBaseHelper dataBaseHelper;
 
 
     protected abstract VB inflateViewBinding(LayoutInflater inflater);
@@ -38,6 +40,7 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
         binding = inflateViewBinding(getLayoutInflater());
         setContentView(binding.getRoot());
         preferenceManager = PreferenceManager.getInstance(this);
+        dataBaseHelper = new DataBaseHelper(this);
 
         if (hasActionBar()) {
             Toolbar toolbar = binding.getRoot().findViewById(R.id.toolbar);

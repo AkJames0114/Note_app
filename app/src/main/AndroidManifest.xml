@@ -25,12 +25,20 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"/>
+
         <activity
             android:name=".RegisterActivity"
             android:exported="false"/>
+
         <activity
             android:name=".LoginActivity"
             android:exported="false"/>
+
+        <activity
+            android:name=".AddNoteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            />
 
     </application>
 

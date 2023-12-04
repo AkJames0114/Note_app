@@ -24,8 +24,8 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/ic_mipmap"
         app:layout_constraintBottom_toTopOf="@id/welcomeText"
