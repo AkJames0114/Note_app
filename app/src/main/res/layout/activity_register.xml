@@ -83,27 +83,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:hint="Firstname"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:hint="Firstname" />
 
         <EditText
             android:id="@+id/lastNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:hint="Lastname"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:hint="Lastname" />
 
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:hint="Email"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:hint="Email" />
 
         <EditText
             android:id="@+id/passCodeEditText"
@@ -112,9 +106,7 @@
             android:backgroundTint="@color/white"
             android:hint="PassCode"
             android:inputType="numberPassword"
-            android:maxLength="4"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:maxLength="4" />
 
     </LinearLayout>
 
@@ -135,9 +127,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:text="Login"
         android:clickable="true"
+        android:text="Login"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@id/doYouHave"
         app:layout_constraintTop_toTopOf="@id/doYouHave" />
 

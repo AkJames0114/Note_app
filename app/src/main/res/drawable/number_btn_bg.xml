@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <corners android:radius="5dp"/>
-    <solid android:color="@color/colorPrimaryDark"/>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:drawable="@drawable/number_btn_pressed" android:state_pressed="true"/>
+    <item android:drawable="@drawable/number_btn"/>
 
-</shape>
+</selector>

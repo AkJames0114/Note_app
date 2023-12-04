@@ -14,7 +14,7 @@ import com.example.noteapp.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
 
-    private Boolean isRegistered = false;
+    private Boolean isLogin = false;
 
     @Override
     protected ActivitySplashBinding inflateViewBinding(LayoutInflater inflater) {
@@ -25,11 +25,11 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        isRegistered = (Boolean) preferenceManager.getValue(Boolean.class, "isRegistered",false);
+        isLogin = (Boolean) preferenceManager.getValue(Boolean.class, "isLogin",false);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (isRegistered) {
+                if (isLogin) {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {

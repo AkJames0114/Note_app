@@ -35,7 +35,7 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding> {
                     preferenceManager.setValue("lastname", lastname);
                     preferenceManager.setValue("email", email);
                     preferenceManager.setValue("passcode", passcode);
-                    preferenceManager.setValue("isRegistered", true);
+                    preferenceManager.setValue("isLogin", true);
 
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(intent);

@@ -6,16 +6,43 @@
     android:background="@color/colorPrimary">
 
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:titleTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Please Login with your passcode!"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/topPanel" />
+
     <LinearLayout
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:orientation="horizontal"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+
+        >
 
         <TextView
             android:id="@+id/passcode1"
@@ -24,7 +51,7 @@
             android:background="@drawable/passcode_bg"
             android:gravity="center"
             android:maxLength="1"
-            android:text="*"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="25sp" />
 
@@ -36,7 +63,7 @@
             android:background="@drawable/passcode_bg"
             android:gravity="center"
             android:maxLength="1"
-            android:text="*"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="25sp" />
 
@@ -48,7 +75,7 @@
             android:background="@drawable/passcode_bg"
             android:gravity="center"
             android:maxLength="1"
-            android:text="*"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="25sp" />
 
@@ -60,7 +87,7 @@
             android:background="@drawable/passcode_bg"
             android:gravity="center"
             android:maxLength="1"
-            android:text="*"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="25sp" />
 
@@ -71,8 +98,9 @@
         android:id="@+id/sevenBtn"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/number_btn_bg"
+        android:clickable="true"
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="7"
@@ -90,7 +118,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="8"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/sevenBtn"
         app:layout_constraintRight_toLeftOf="@id/nineBtn"
@@ -104,7 +132,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="9"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/eightBtn"
         app:layout_constraintRight_toRightOf="parent"
@@ -122,7 +150,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="4"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/fiveBtn"
@@ -136,7 +164,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="5"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/fourBtn"
         app:layout_constraintRight_toLeftOf="@id/sixBtn"
@@ -150,7 +178,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="6"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/fiveBtn"
         app:layout_constraintRight_toRightOf="parent"
@@ -168,7 +196,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="1"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/twoBtn"
@@ -182,7 +210,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="2"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/oneBtn"
         app:layout_constraintRight_toLeftOf="@id/threeBtn"
@@ -196,7 +224,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="3"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/twoBtn"
         app:layout_constraintRight_toRightOf="parent"
@@ -214,7 +242,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="0"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintLeft_toLeftOf="@id/twoBtn"
         app:layout_constraintRight_toRightOf="@id/twoBtn"
