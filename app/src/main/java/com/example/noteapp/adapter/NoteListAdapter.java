@@ -1,11 +1,13 @@
 package com.example.noteapp.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.example.noteapp.NoteDetailsActivity;
 import com.example.noteapp.base.BaseAdapter;
 import com.example.noteapp.base.BaseViewHolder;
 import com.example.noteapp.databinding.ItemNoteBinding;
@@ -14,6 +16,8 @@ import com.example.noteapp.model.Note;
 import java.util.ArrayList;
 
 public class NoteListAdapter extends BaseAdapter {
+
+    private Note note;
 
     private ArrayList<Note> noteArrayList;
 
@@ -31,6 +35,18 @@ public class NoteListAdapter extends BaseAdapter {
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
         holder.onBind(position);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Note note = noteArrayList.get(holder.getAdapterPosition());
+                Intent intent = new Intent(holder.itemView.getContext(), NoteDetailsActivity.class);
+               /* intent.putExtra("id", noteArrayList.get(holder.getAdapterPosition()).getId());
+               */
+
+                intent.putExtra("note", note);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

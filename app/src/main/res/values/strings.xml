@@ -3,4 +3,5 @@
     <string name="notes">Notes</string>
     <string name="profile">Profile</string>
     <string name="add_new_note_activity_title">Add Note</string>
+    <string name="note_details_title">Note Details</string>
 </resources>

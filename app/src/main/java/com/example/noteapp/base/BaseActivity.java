@@ -3,7 +3,9 @@ package com.example.noteapp.base;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -62,5 +64,16 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
     public void setTitle(String title){
         if (getSupportActionBar()!=null)
             getSupportActionBar().setTitle(title);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }

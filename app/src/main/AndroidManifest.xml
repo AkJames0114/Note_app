@@ -40,6 +40,10 @@
             android:windowSoftInputMode="adjustResize"
             />
 
+        <activity
+            android:name=".NoteDetailsActivity"/>
+
+
     </application>
 
 </manifest>

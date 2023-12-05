@@ -48,6 +48,7 @@ public class NoteFragment extends BaseFragment<FragmentNotesBinding> {
     @Override
     public void onResume() {
         super.onResume();
+        noteArrayList.clear();
         noteArrayList.addAll(baseActivity.dataBaseHelper.getNotes());
         adapter.notifyDataSetChanged();
     }
