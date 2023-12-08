@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,8 +18,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryDark"
             app:titleTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -27,29 +27,31 @@
         android:id="@+id/fragmentContainerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#797474"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar" />
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageView
         android:id="@+id/addNoteIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_margin="15dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/add_btn_bg"
+        android:elevation="10dp"
+        android:padding="10dp"
         android:src="@drawable/ic_add1"
-        app:circularflow_radiusInDP="100dp"
-        app:itemIconTint="@color/white"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintRight_toRightOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimaryDark"
         android:elevation="@dimen/cardview_compat_inset_shadow"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"

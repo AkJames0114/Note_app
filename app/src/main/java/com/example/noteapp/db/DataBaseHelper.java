@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     public static String DB_NAME = "Note_AP";
-    public static Integer DB_VERSION = 2;
+    public static Integer DB_VERSION = 3;
 
     public DataBaseHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);

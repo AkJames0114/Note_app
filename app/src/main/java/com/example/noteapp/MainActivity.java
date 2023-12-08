@@ -21,7 +21,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private NoteFragment noteFragment;
     private ProfileFragment profileFragment;
-
+    private LibraryFragment libraryFragment;
 
     @Override
     protected ActivityMainBinding inflateViewBinding(LayoutInflater inflater) {
@@ -39,14 +39,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 replaceFragment(item.getItemId());
 
                 return true;
-
             }
         });
         replaceFragment(R.id.noteTab);
         binding.addNoteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddNoteActivity.class );
+                Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
                 startActivity(intent);
 
             }
@@ -57,7 +56,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     public void generateNotes() {
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 15; i++) {
             Note note = new Note("Title " + (i + 1), "CONTENT " + (i + 1) + "; A plain text editor that allows you to keep notes throughout the day, create a list, write or edit code without worrying about unwanted auto formatting.");
             Log.d("Note: ", note.toString());
             dataBaseHelper.addNote(note);
@@ -65,14 +64,21 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         }
     }
 
-
     private void replaceFragment(int tabId) {
         if (tabId == R.id.noteTab) {
+            binding.addNoteIcon.setVisibility(View.VISIBLE);
             if (noteFragment == null)
                 noteFragment = new NoteFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, noteFragment).commit();
             setTitle(R.string.notes);
+        } else if (tabId==R.id.libraryTab) {
+            binding.addNoteIcon.setVisibility(View.VISIBLE);
+            if (libraryFragment == null)
+                libraryFragment = new LibraryFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, libraryFragment).commit();
+            setTitle("Library");
         } else {
+            binding.addNoteIcon.setVisibility(View.GONE);
             if (profileFragment == null)
                 profileFragment = new ProfileFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, profileFragment).commit();

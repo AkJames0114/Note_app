@@ -9,7 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -17,8 +17,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryDark"
             app:titleTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:text="Please Login with your passcode!"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/topPanel" />
 
     <LinearLayout
@@ -52,7 +52,7 @@
             android:gravity="center"
             android:maxLength="1"
             android:text=""
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="25sp" />
 
         <TextView
@@ -64,7 +64,7 @@
             android:gravity="center"
             android:maxLength="1"
             android:text=""
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="25sp" />
 
         <TextView
@@ -76,7 +76,7 @@
             android:gravity="center"
             android:maxLength="1"
             android:text=""
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="25sp" />
 
         <TextView
@@ -88,7 +88,7 @@
             android:gravity="center"
             android:maxLength="1"
             android:text=""
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="25sp" />
 
 
@@ -104,7 +104,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="7"
-        android:textColor="@color/number_text_color_selector"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/eightBtn"
@@ -118,7 +118,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="8"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/sevenBtn"
         app:layout_constraintRight_toLeftOf="@id/nineBtn"
@@ -132,7 +132,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="9"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/eightBtn"
         app:layout_constraintRight_toRightOf="parent"
@@ -150,7 +150,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="4"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/fiveBtn"
@@ -164,7 +164,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="5"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/fourBtn"
         app:layout_constraintRight_toLeftOf="@id/sixBtn"
@@ -178,7 +178,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="6"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/fiveBtn"
         app:layout_constraintRight_toRightOf="parent"
@@ -196,7 +196,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="1"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/twoBtn"
@@ -210,7 +210,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="2"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/oneBtn"
         app:layout_constraintRight_toLeftOf="@id/threeBtn"
@@ -224,7 +224,7 @@
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="3"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toRightOf="@id/twoBtn"
         app:layout_constraintRight_toRightOf="parent"
@@ -235,14 +235,14 @@
 
     <TextView
         android:id="@+id/zeroBtn"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="65dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/number_btn_bg"
         android:gravity="center"
         android:onClick="numberClicked"
         android:text="0"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintLeft_toLeftOf="@id/twoBtn"
         app:layout_constraintRight_toRightOf="@id/twoBtn"

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c4c4c4"
+    android:background="@color/colorPrimary"
     >
 
 
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="NoteAP"
-        android:textColor="#252525"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="@id/image"
