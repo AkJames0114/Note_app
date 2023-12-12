@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.example.noteapp.base.BaseActivity;
 import com.example.noteapp.databinding.ActivityMainBinding;
+import com.example.noteapp.model.BookNote;
 import com.example.noteapp.model.Note;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -22,6 +23,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     private NoteFragment noteFragment;
     private ProfileFragment profileFragment;
     private LibraryFragment libraryFragment;
+    private int selectedTab = R.id.noteTab;
 
     @Override
     protected ActivityMainBinding inflateViewBinding(LayoutInflater inflater) {
@@ -45,18 +47,25 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         binding.addNoteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (selectedTab==R.id.noteTab){
+
                 Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
                 startActivity(intent);
 
+                }else if (selectedTab==R.id.libraryTab){
+                    Intent intent = new Intent(MainActivity.this, AddBookNoteActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
-        //generateNotes();
+        /*generateNotes();*/
+        //generateBookNotes();
     }
 
     public void generateNotes() {
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 5; i++) {
             Note note = new Note("Title " + (i + 1), "CONTENT " + (i + 1) + "; A plain text editor that allows you to keep notes throughout the day, create a list, write or edit code without worrying about unwanted auto formatting.");
             Log.d("Note: ", note.toString());
             dataBaseHelper.addNote(note);
@@ -64,14 +73,25 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         }
     }
 
+    public void generateBookNotes() {
+
+        for (int i = 0; i < 5; i++) {
+            BookNote bookNote = new BookNote("Title " + (i + 1), "CONTENT " + (i + 1) + "; A plain text editor that allows you to keep notes throughout the day, create a list, write or edit code without worrying about unwanted auto formatting.");
+            Log.d("Book Note: ", bookNote.toString());
+            dataBaseHelper.addBookNote(bookNote);
+
+        }
+    }
+
     private void replaceFragment(int tabId) {
+        selectedTab = tabId;
         if (tabId == R.id.noteTab) {
             binding.addNoteIcon.setVisibility(View.VISIBLE);
             if (noteFragment == null)
                 noteFragment = new NoteFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, noteFragment).commit();
             setTitle(R.string.notes);
-        } else if (tabId==R.id.libraryTab) {
+        } else if (tabId == R.id.libraryTab) {
             binding.addNoteIcon.setVisibility(View.VISIBLE);
             if (libraryFragment == null)
                 libraryFragment = new LibraryFragment();

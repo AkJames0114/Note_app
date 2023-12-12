@@ -24,25 +24,29 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".RegisterActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".LoginActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".AddNoteActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"
-            />
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".NoteDetailsActivity" />
 
         <activity
-            android:name=".NoteDetailsActivity"/>
+            android:name=".AddBookNoteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
+        <activity android:name=".BookNoteDetailsActivity" />
 
     </application>
 

@@ -3,5 +3,7 @@
     <string name="notes">Notes</string>
     <string name="profile">Profile</string>
     <string name="add_new_note_activity_title">Add Note</string>
+    <string name="add_new_book_note_activity_title">Add Note</string>
     <string name="note_details_title">Note Details</string>
+    <string name="book_note_details_title">Book Note Details</string>
 </resources>

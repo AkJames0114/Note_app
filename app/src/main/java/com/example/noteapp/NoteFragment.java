@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class NoteFragment extends BaseFragment<FragmentNotesBinding> {
 
-    private ArrayList<Note> noteArrayList = new ArrayList<>();
+    private final ArrayList<Note> noteArrayList = new ArrayList<>();
     private NoteListAdapter adapter;
 
     @Override

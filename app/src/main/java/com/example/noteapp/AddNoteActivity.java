@@ -34,7 +34,6 @@ public class AddNoteActivity extends BaseActivity<ActivityAddNoteBinding> {
             binding.content.setText(note.getContent());
         }
 
-
         binding.createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

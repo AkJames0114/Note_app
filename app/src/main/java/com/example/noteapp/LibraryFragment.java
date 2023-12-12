@@ -9,23 +9,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.example.noteapp.adapter.BookNoteListAdapter;
 import com.example.noteapp.adapter.NoteListAdapter;
 import com.example.noteapp.base.BaseFragment;
 import com.example.noteapp.databinding.FragmentLibraryBinding;
+import com.example.noteapp.model.BookNote;
 import com.example.noteapp.model.Note;
 
 import java.util.ArrayList;
 
 public class LibraryFragment extends BaseFragment<FragmentLibraryBinding> {
 
-    private ArrayList<Note> noteArrayList = new ArrayList<>();
-    private NoteListAdapter adapter;
+    private final ArrayList<BookNote> bookNoteArrayList = new ArrayList<>();
+    private BookNoteListAdapter adapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        adapter = new NoteListAdapter(noteArrayList);
+        adapter = new BookNoteListAdapter(bookNoteArrayList);
 
     }
 
@@ -39,6 +41,16 @@ public class LibraryFragment extends BaseFragment<FragmentLibraryBinding> {
         super.onViewCreated(view, savedInstanceState);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-
+        binding.bookNoteRecyclerView.setLayoutManager(gridLayoutManager);
+        binding.bookNoteRecyclerView.setAdapter(adapter);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        bookNoteArrayList.clear();
+        bookNoteArrayList.addAll(baseActivity.dataBaseHelper.getBookNote());
+        adapter.notifyDataSetChanged();
+    }
+
 }
