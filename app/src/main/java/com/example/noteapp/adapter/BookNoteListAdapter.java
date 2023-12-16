@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.example.noteapp.BookNoteDetailsActivity;
 import com.example.noteapp.NoteDetailsActivity;
 import com.example.noteapp.base.BaseAdapter;
 import com.example.noteapp.base.BaseViewHolder;
@@ -40,11 +41,11 @@ public class BookNoteListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 BookNote booknote = bookNoteArrayList.get(holder.getAdapterPosition());
-                Intent intent = new Intent(holder.itemView.getContext(), NoteDetailsActivity.class);
+                Intent intent = new Intent(holder.itemView.getContext(), BookNoteDetailsActivity.class);
                /* intent.putExtra("id", noteArrayList.get(holder.getAdapterPosition()).getId());
                */
 
-                intent.putExtra("book note", bookNote);
+                intent.putExtra("book_note", bookNote);
                 holder.itemView.getContext().startActivity(intent);
             }
         });

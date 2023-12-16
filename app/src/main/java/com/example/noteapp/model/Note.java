@@ -1,13 +1,27 @@
 package com.example.noteapp.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
-public class Note implements Serializable {
+import kotlin.jvm.internal.SerializedIr;
 
+public class Note implements Serializable {
+    @SerializedName("id")
     private Integer id;
+    @SerializedName("title")
     private String title;
+    @SerializedName("content")
     private String content;
+    @SerializedName("created_at")
     private String createdAt;
+
+    public Note(Integer id, String title, String content, String createdAt) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.createdAt = createdAt;
+    }
 
     public Note(String title, String content) {
         this.title = title;

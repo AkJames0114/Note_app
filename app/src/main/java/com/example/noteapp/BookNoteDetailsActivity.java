@@ -40,7 +40,6 @@ public class BookNoteDetailsActivity extends BaseActivity<ActivityBooknoteDetail
 
         }
 
-
     @Override
     protected void onStart() {
         super.onStart();
