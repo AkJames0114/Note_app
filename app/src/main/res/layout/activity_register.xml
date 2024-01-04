@@ -99,12 +99,12 @@
                 android:hint="Email" />
 
             <EditText
-                android:id="@+id/passCodeEditText"
+                android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/black"
-                android:hint="PassCode"
+                android:hint="Password"
                 android:inputType="numberPassword"
                 android:maxLength="4" />
 

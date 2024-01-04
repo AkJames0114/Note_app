@@ -30,7 +30,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
             @Override
             public void run() {
                 if (isLogin) {
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, NewsActivity.class);
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);

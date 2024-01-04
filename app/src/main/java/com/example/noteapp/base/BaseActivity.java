@@ -2,7 +2,6 @@ package com.example.noteapp.base;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -13,7 +12,7 @@ import androidx.viewbinding.ViewBinding;
 
 import com.example.noteapp.R;
 import com.example.noteapp.db.DataBaseHelper;
-import com.example.noteapp.remote.NoteApi;
+import com.example.noteapp.remote.MainApi;
 import com.example.noteapp.util.PreferenceManager;
 
 import okhttp3.OkHttpClient;
@@ -25,17 +24,20 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
 
     protected VB binding;
 
-    private static String BASE_URL = "http://api-sw.beknumonov.com/";
+    private static String BASE_URL = "http://api.note-app.beknumonov.com";
     public PreferenceManager preferenceManager;
     public DataBaseHelper dataBaseHelper;
-
-    public NoteApi noteApi;
+    public MainApi noteApi;
 
 
     protected abstract VB inflateViewBinding(LayoutInflater inflater);
 
     public boolean hasActionBar() {
         return false;
+    }
+
+    public boolean backButtonClickActivated() {
+        return true;
     }
 
     public boolean hasBackButton() {
@@ -79,7 +81,7 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
                 .client(client)
                 .build();
 
-        noteApi = retrofit.create(NoteApi.class);
+        noteApi = retrofit.create(MainApi.class);
 
     }
 
@@ -95,9 +97,12 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (backButtonClickActivated()) {
+                    onBackPressed();
+                }
+                return true;
         }
         return super.onOptionsItemSelected(item);
 
