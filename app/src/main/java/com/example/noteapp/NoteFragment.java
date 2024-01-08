@@ -9,9 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.viewbinding.ViewBinding;
 
 import com.example.noteapp.adapter.NoteListAdapter;
 import com.example.noteapp.base.BaseFragment;
@@ -57,7 +55,7 @@ public class NoteFragment extends BaseFragment<FragmentNotesBinding> {
         super.onResume();
         noteArrayList.clear();
         //noteArrayList.addAll(baseActivity.dataBaseHelper.getNotes());
-        Call<ArrayList<JsonObject>> call = baseActivity.noteApi.getNotes();
+/*        Call<ArrayList<JsonObject>> call = baseActivity.mainApi.getNotes();
 
         call.enqueue(new Callback<ArrayList<JsonObject>>() {
             @Override
@@ -81,7 +79,7 @@ public class NoteFragment extends BaseFragment<FragmentNotesBinding> {
             public void onFailure(Call<ArrayList<JsonObject>> call, Throwable t) {
                 Toast.makeText(getContext(), "Error fetching data", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
 
         adapter.notifyDataSetChanged();

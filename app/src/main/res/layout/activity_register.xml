@@ -106,7 +106,7 @@
                 android:backgroundTint="@color/black"
                 android:hint="Password"
                 android:inputType="numberPassword"
-                android:maxLength="4" />
+                android:maxLength="8" />
 
             <Button
                 android:id="@+id/completeBtn"

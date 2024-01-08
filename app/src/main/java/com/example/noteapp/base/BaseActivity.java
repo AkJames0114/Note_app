@@ -27,7 +27,7 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
     private static String BASE_URL = "http://api.note-app.beknumonov.com";
     public PreferenceManager preferenceManager;
     public DataBaseHelper dataBaseHelper;
-    public MainApi noteApi;
+    public MainApi mainApi;
 
 
     protected abstract VB inflateViewBinding(LayoutInflater inflater);
@@ -81,7 +81,7 @@ public abstract class BaseActivity<VB extends ViewBinding> extends AppCompatActi
                 .client(client)
                 .build();
 
-        noteApi = retrofit.create(MainApi.class);
+        mainApi = retrofit.create(MainApi.class);
 
     }
 

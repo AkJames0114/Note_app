@@ -1,7 +1,5 @@
 package com.example.noteapp;
 
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,9 +10,6 @@ import androidx.annotation.Nullable;
 import com.example.noteapp.base.BaseActivity;
 import com.example.noteapp.databinding.ActivityAddNoteBinding;
 import com.example.noteapp.model.Note;
-import com.google.gson.JsonObject;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,7 +50,7 @@ public class AddNoteActivity extends BaseActivity<ActivityAddNoteBinding> {
                     note.setTitle(title);
                     note.setContent(content);
                     //dataBaseHelper.addNote(note);
-                    Call<Note> call = noteApi.createNote(note);
+                    Call<Note> call = mainApi.createNote(note);
                     call.enqueue(new Callback<Note>() {
                         @Override
                         public void onResponse(Call<Note> call, Response<Note> response) {

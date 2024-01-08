@@ -19,8 +19,19 @@ public class User {
     @SerializedName("last_name")
     private String last_name;
 
+    @SerializedName("phoneNumber")
+    private String phoneNumber;
+
+    @SerializedName("address")
+    private String address;
+
     @SerializedName("access_token")
     private String accessToken;
+
+    public User(String phoneNumber, String address) {
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
 
     public User(Integer id, String email, String password, String first_name, String last_name, String accessToken) {
         this.id = id;
@@ -30,7 +41,29 @@ public class User {
         this.last_name = last_name;
         this.accessToken = accessToken;
     }
-    public User(){
+
+    public User(String firstname, String lastname, String email, String passcode) {
+        this.email = email;
+        this.password = password;
+        this.first_name = first_name;
+        this.last_name = last_name;
+    }
+
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Integer getId() {

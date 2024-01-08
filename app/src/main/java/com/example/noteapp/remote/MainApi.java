@@ -15,7 +15,7 @@ import retrofit2.http.POST;
 
 public interface MainApi {
 
-    //Base URL=http://api.note-app.beknumonov.com/
+    //Base URL=http://api.note-app.beknumonov.com
 
     //User endpoint: v1/user/
 

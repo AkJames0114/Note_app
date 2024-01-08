@@ -38,7 +38,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
                 }
 
             }
-        }, 4000);
+        }, 3000);
 
 
     }
