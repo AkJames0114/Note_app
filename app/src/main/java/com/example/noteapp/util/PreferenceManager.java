@@ -56,4 +56,6 @@ public class PreferenceManager implements PreferenceHelper {
     public void clear() {
         mPreference.edit().clear().apply();
     }
+
+
 }

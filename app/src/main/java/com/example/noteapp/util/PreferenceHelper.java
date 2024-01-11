@@ -9,4 +9,5 @@ public interface PreferenceHelper {
     void removeKey(String key);
 
     void clear();
+
 }

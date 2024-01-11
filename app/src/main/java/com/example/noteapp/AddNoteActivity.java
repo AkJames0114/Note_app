@@ -50,7 +50,11 @@ public class AddNoteActivity extends BaseActivity<ActivityAddNoteBinding> {
                     note.setTitle(title);
                     note.setContent(content);
                     //dataBaseHelper.addNote(note);
-                    Call<Note> call = mainApi.createNote(note);
+
+                    String access_token = (String) preferenceManager.getValue(String.class, "access_token", "");
+                    String bearer_token = "Bearer " + access_token;
+
+                    Call<Note> call = mainApi.createNote(bearer_token, note);
                     call.enqueue(new Callback<Note>() {
                         @Override
                         public void onResponse(Call<Note> call, Response<Note> response) {

@@ -25,6 +25,9 @@ public class User {
     @SerializedName("address")
     private String address;
 
+    @SerializedName("device_token")
+    private String deviceToken;
+
     @SerializedName("access_token")
     private String accessToken;
 
@@ -42,13 +45,24 @@ public class User {
         this.accessToken = accessToken;
     }
 
-    public User(String firstname, String lastname, String email, String passcode) {
+    public User(String first_name, String last_name, String email, String password) {
         this.email = email;
         this.password = password;
         this.first_name = first_name;
         this.last_name = last_name;
     }
 
+    public User() {
+
+    }
+
+    public String getDeviceToken() {
+        return deviceToken;
+    }
+
+    public void setDeviceToken(String deviceToken) {
+        this.deviceToken = deviceToken;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface MainApi {
@@ -26,10 +27,9 @@ public interface MainApi {
     Call<Token> login (@Body User user);
 
     // endpoint: v1/notes/
-    @GET("v1/notes/")
-    Call<ArrayList<JsonObject>> getNotes();
+    @GET("v1/note/")
+    Call<ArrayList<Note>> getNotes(@Header("Authorization") String accessToken);
 
-    @POST("v1/notes/")
-    Call<Note> createNote(@Body Note note);
-
+    @POST("v1/note/")
+    Call<Note> createNote(@Header("Authorization") String accessToken,@Body Note note);
 }

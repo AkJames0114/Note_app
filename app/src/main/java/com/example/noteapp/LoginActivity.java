@@ -11,10 +11,17 @@ import androidx.annotation.Nullable;
 
 import com.example.noteapp.base.BaseActivity;
 import com.example.noteapp.databinding.ActivityLoginBinding;
+import com.example.noteapp.model.Token;
+import com.example.noteapp.model.User;
+import com.google.gson.Gson;
 
 import java.lang.reflect.Array;
 import java.net.InetSocketAddress;
 import java.util.Arrays;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
 
@@ -31,59 +38,43 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Login");
-    }
+        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = binding.emailEditText.getText().toString();
+                String password = binding.passwordEditText.getText().toString();
 
-    public void numberClicked(View view) {
-        if (passCodeCounter > 3) {
-            return;
-        }
-        String text = ((TextView) view).getText().toString();
-        passCodeString[passCodeCounter] = text;
+                if (!email.isEmpty() && !password.isEmpty()) {
 
-        switch (passCodeCounter) {
-            case 0:
-                binding.passcode1.setText("*");
-                break;
-            case 1:
-                binding.passcode2.setText("*");
-                break;
-            case 2:
-                binding.passcode3.setText("*");
-                break;
-            case 3:
-                binding.passcode4.setText("*");
-                break;
+                    User user = new User();
+                    user.setEmail(email);
+                    user.setPassword(password);
+                    Log.d("User", new Gson().toJson(user));
 
-        }
-        passCodeCounter++;
+                    Call<Token> call = mainApi.login(user);
+                    call.enqueue(new Callback<Token>() {
+                        @Override
+                        public void onResponse(Call<Token> call, Response<Token> response) {
+                            Token token = response.body();
+                            preferenceManager.setValue("isLogin", true);
+                            preferenceManager.setValue("access_token", token.getAccess());
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
 
-        if (passCodeCounter > 3) {
-            checkPassword(passCodeString);
-        }
 
-    }
+                        }
 
-    private void checkPassword(String[] passCodeString) {
-        String passcode = convertPassCodeArrayToString(passCodeString);
-        String myPasscode = (String) preferenceManager.getValue(String.class, "passcode", "");
+                        @Override
+                        public void onFailure(Call<Token> call, Throwable t) {
 
-        if (!myPasscode.isEmpty() && !passcode.isEmpty()) {
-            if (myPasscode.equals(passcode)) {
-                preferenceManager.setValue("isLogin", true);
-                Intent intent = new Intent(LoginActivity.this, NewsActivity.class);
-                startActivity(intent);
+                        }
+                    });
+
+
+                }
             }
-        }
+        });
     }
-
-    private String convertPassCodeArrayToString(String[] passCodeString) {
-        StringBuilder passcode = new StringBuilder();
-        for (String s : passCodeString) {
-            passcode.append(s);
-        }
-        return passcode.toString();
-    }
-
 
     @Override
     public boolean hasActionBar() {

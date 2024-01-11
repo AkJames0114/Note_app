@@ -14,6 +14,7 @@ public class Token {
         this.access = access;
         this.refresh = refresh;
     }
+
     public Token() {
     }
 
@@ -32,4 +33,5 @@ public class Token {
     public void setRefresh(String refresh) {
         this.refresh = refresh;
     }
+
 }

@@ -29,11 +29,11 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (isLogin) {
-                    Intent intent = new Intent(SplashActivity.this, NewsActivity.class);
+                if (!isLogin) {
+                    Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
 

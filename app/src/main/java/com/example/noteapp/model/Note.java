@@ -94,11 +94,6 @@ public class Note implements Serializable {
                     CREATED_AT+" CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                     ");";
             return sql;
-
-
         }
-
-
-
     }
 }

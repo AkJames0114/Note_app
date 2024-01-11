@@ -25,7 +25,7 @@ import retrofit2.Response;
 
 public class NoteFragment extends BaseFragment<FragmentNotesBinding> {
 
-    private final ArrayList<Note> noteArrayList = new ArrayList<>();
+    private ArrayList<Note> noteArrayList = new ArrayList<>();
     private NoteListAdapter adapter;
 
     @Override
@@ -55,33 +55,24 @@ public class NoteFragment extends BaseFragment<FragmentNotesBinding> {
         super.onResume();
         noteArrayList.clear();
         //noteArrayList.addAll(baseActivity.dataBaseHelper.getNotes());
-/*        Call<ArrayList<JsonObject>> call = baseActivity.mainApi.getNotes();
+        String access_token = (String) baseActivity.preferenceManager.getValue(String.class,"access_token", "");
+        String bearer_token = "Bearer " + access_token;
+        Call<ArrayList<Note>> call = baseActivity.mainApi.getNotes(bearer_token);
 
-        call.enqueue(new Callback<ArrayList<JsonObject>>() {
+        call.enqueue(new Callback<ArrayList<Note>>() {
             @Override
-            public void onResponse(Call<ArrayList<JsonObject>> call, Response<ArrayList<JsonObject>> response) {
+            public void onResponse(Call<ArrayList<Note>> call, Response<ArrayList<Note>> response) {
                 Log.d("Note", response.raw().toString());
-                ArrayList<JsonObject> jsonObjectArrayList = response.body();
-                for (JsonObject j : jsonObjectArrayList) {
-                    Note note = new Note();
-                    note.setId(j.get("id").getAsInt());
-                    note.setTitle(j.get("title").getAsString());
-                    note.setContent(j.get("content").getAsString());
-                    note.setCreatedAt(j.get("created_at").getAsString());
-                    noteArrayList.add(note);
-
-                    adapter.notifyDataSetChanged();
-
-                }
+                ArrayList<Note> notes = response.body();
+                noteArrayList.addAll(notes);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onFailure(Call<ArrayList<JsonObject>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Note>> call, Throwable t) {
                 Toast.makeText(getContext(), "Error fetching data", Toast.LENGTH_SHORT).show();
             }
-        });*/
-
-
+        });
         adapter.notifyDataSetChanged();
     }
 }
