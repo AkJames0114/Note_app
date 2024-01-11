@@ -1,13 +1,11 @@
 package com.example.noteapp.db;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import androidx.annotation.LongDef;
 import androidx.annotation.Nullable;
 
 import com.example.noteapp.model.BookNote;
@@ -70,7 +68,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ") VALUES " +
                 "( '" +
                 bookNote.getTitle() + "', '" +
-                bookNote.getContent() +
+                bookNote.getDescription() +
                 "');";
         Log.d("INSERT", insert_sql);
 
@@ -91,7 +89,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void updateBookNote(BookNote bookNote) {
         SQLiteDatabase db = getWritableDatabase();
         String sql = "UPDATE " + BookNote.BookNoteEntry.TABLE_NAME + " SET " + BookNote.BookNoteEntry.TITLE + "='" + bookNote.getTitle()+
-                "', "+BookNote.BookNoteEntry.CONTENT+"= '"+bookNote.getContent()+"' WHERE ID= "+bookNote.getId();
+                "', "+BookNote.BookNoteEntry.CONTENT+"= '"+bookNote.getDescription()+"' WHERE ID= "+bookNote.getId();
         Log.d("SQL:", sql);
         db.execSQL(sql);
         db.close();
@@ -136,7 +134,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             BookNote bookNote = new BookNote();
             bookNote.setId(cursor.getInt(0));
             bookNote.setTitle(cursor.getString(1));
-            bookNote.setContent(cursor.getString(2));
+            bookNote.setDescription(cursor.getString(2));
             bookNote.setCreatedAt(cursor.getString(3));
             bookNoteArrayList.add(bookNote);
         }
@@ -172,7 +170,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             BookNote bookNote = new BookNote();
             bookNote.setId(cursor.getInt(0));
             bookNote.setTitle(cursor.getString(1));
-            bookNote.setContent(cursor.getString(2));
+            bookNote.setDescription(cursor.getString(2));
             bookNote.setCreatedAt(cursor.getString(3));
             return bookNote;
         }

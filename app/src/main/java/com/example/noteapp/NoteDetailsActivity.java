@@ -40,13 +40,13 @@ public class NoteDetailsActivity extends BaseActivity<ActivityNoteDetailsBinding
         }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (note!=null){
-            note=dataBaseHelper.getNote(note.getId());
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if (note!=null){
+//            note=dataBaseHelper.getNote(note.getId());
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

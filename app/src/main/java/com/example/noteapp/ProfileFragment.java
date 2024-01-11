@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import androidx.annotation.Nullable;
 
 import com.example.noteapp.base.BaseFragment;
 import com.example.noteapp.databinding.FragmentProfileBinding;
+
+import java.io.File;
 
 public class ProfileFragment extends BaseFragment<FragmentProfileBinding> {
 
@@ -37,6 +40,15 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> {
             @Override
             public void onClick(View v) {
                 baseActivity.preferenceManager.setValue("isLogin", false);
+                String filename = "my_access_token.txt";
+
+                Log.d("ProfileFragment", getContext().getFilesDir()+"/" + filename);
+
+                File file = new File(getContext().getFilesDir(), filename);
+                if (file.delete()){
+                    Log.d("ProfileFragment ", "Token file is deleted");
+                }
+
                 Intent intent=new Intent(getContext(),RegisterActivity.class);
                 startActivity(intent);
             }

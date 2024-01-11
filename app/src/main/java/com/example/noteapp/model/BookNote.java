@@ -1,20 +1,56 @@
 package com.example.noteapp.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class BookNote implements Serializable {
 
+    @SerializedName("id")
     private Integer id;
+    @SerializedName("title")
     private String title;
-    private String content;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("image")
+    private String image;
+    @SerializedName("page_count")
+    private String pageCount;
+    @SerializedName("created_at")
     private String createdAt;
 
-    public BookNote(String title, String content) {
+    public BookNote(Integer id, String title, String description, String image, String pageCount, String createdAt) {
+        this.id = id;
         this.title = title;
-        this.content = content;
+        this.description = description;
+        this.image = image;
+        this.pageCount = pageCount;
+        this.createdAt = createdAt;
+    }
+
+    public BookNote(String title, String description) {
+        this.title = title;
+        this.description = description;
+
     }
 
     public BookNote() {
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getPageCount() {
+        return pageCount;
+    }
+
+    public void setPageCount(String pageCount) {
+        this.pageCount = pageCount;
     }
 
     public Integer getId() {
@@ -33,12 +69,12 @@ public class BookNote implements Serializable {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCreatedAt() {
@@ -53,7 +89,7 @@ public class BookNote implements Serializable {
     public String toString() {
         return "BookNote{" +
                 ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
+                ", content='" + description + '\'' +
                 '}';
     }
 

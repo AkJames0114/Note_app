@@ -11,9 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.example.noteapp.base.BaseActivity;
 import com.example.noteapp.databinding.ActivityBooknoteDetailsBinding;
-import com.example.noteapp.databinding.ActivityNoteDetailsBinding;
 import com.example.noteapp.model.BookNote;
-import com.example.noteapp.model.Note;
 
 public class BookNoteDetailsActivity extends BaseActivity<ActivityBooknoteDetailsBinding> {
 
@@ -40,13 +38,13 @@ public class BookNoteDetailsActivity extends BaseActivity<ActivityBooknoteDetail
 
         }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (bookNote!=null){
-            bookNote=dataBaseHelper.getBookNote(bookNote.getId());
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        if (bookNote!=null){
+//            bookNote=dataBaseHelper.getBookNote(bookNote.getId());
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,7 +57,7 @@ public class BookNoteDetailsActivity extends BaseActivity<ActivityBooknoteDetail
         super.onResume();
         if (bookNote != null) {
             binding.title.setText(bookNote.getTitle());
-            binding.content.setText(bookNote.getContent());
+            binding.content.setText(bookNote.getDescription());
         }
     }
     @Override

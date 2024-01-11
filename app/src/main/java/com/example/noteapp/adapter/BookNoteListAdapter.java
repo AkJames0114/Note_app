@@ -8,10 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.example.noteapp.BookNoteDetailsActivity;
-import com.example.noteapp.NoteDetailsActivity;
 import com.example.noteapp.base.BaseAdapter;
 import com.example.noteapp.base.BaseViewHolder;
-import com.example.noteapp.databinding.ItemBookNoteBinding;
 import com.example.noteapp.databinding.ItemBookNoteBinding;
 import com.example.noteapp.model.BookNote;
 
@@ -68,7 +66,7 @@ public class BookNoteListAdapter extends BaseAdapter {
         public void onBind(int position) {
             BookNote bookNote = bookNoteArrayList.get(position);
             binding.title.setText(bookNote.getTitle());
-            binding.content.setText(bookNote.getContent());
+            binding.content.setText(bookNote.getDescription());
         }
     }
 }

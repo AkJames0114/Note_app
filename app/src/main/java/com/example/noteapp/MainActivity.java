@@ -18,6 +18,9 @@ import com.example.noteapp.model.BookNote;
 import com.example.noteapp.model.Note;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private NoteFragment noteFragment;
@@ -47,20 +50,44 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         binding.addNoteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (selectedTab==R.id.noteTab){
+                if (selectedTab == R.id.noteTab) {
 
-                Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
-                startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
+                    startActivity(intent);
 
-                }else if (selectedTab==R.id.libraryTab){
+                } else if (selectedTab == R.id.libraryTab) {
                     Intent intent = new Intent(MainActivity.this, AddBookNoteActivity.class);
                     startActivity(intent);
                 }
             }
         });
 
+        String access_refresh_token = getAccessTokenFromFile();
+        Log.d("MainActivity","Token: "+access_refresh_token);
+
         /*generateNotes();*/
         //generateBookNotes();
+    }
+
+    public String getAccessTokenFromFile() {
+
+        String filename = "my_access_token.txt";
+        FileInputStream inputStream;
+
+        StringBuilder builder = new StringBuilder();
+        try {
+            inputStream = openFileInput(filename);
+            int c;
+
+            while ((c = inputStream.read()) != -1) {
+                builder.append((char) c);
+            }
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  builder.toString();
+
     }
 
     public void generateNotes() {

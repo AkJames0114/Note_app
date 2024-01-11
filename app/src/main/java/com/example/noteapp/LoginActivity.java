@@ -1,5 +1,6 @@
 package com.example.noteapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,8 @@ import com.example.noteapp.model.Token;
 import com.example.noteapp.model.User;
 import com.google.gson.Gson;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.InetSocketAddress;
 import java.util.Arrays;
@@ -58,6 +61,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                             Token token = response.body();
                             preferenceManager.setValue("isLogin", true);
                             preferenceManager.setValue("access_token", token.getAccess());
+                            saveToFile(token.getAccess(), token.getRefresh());
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
 
@@ -74,6 +78,20 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                 }
             }
         });
+    }
+
+    private void saveToFile(String access_token, String refresh) {
+        String filename = "my_access_token.txt";
+        FileOutputStream outputStream;
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(access_token.getBytes());
+            outputStream.write("\n".getBytes());
+            outputStream.write(refresh.getBytes());
+            outputStream.close();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Override
