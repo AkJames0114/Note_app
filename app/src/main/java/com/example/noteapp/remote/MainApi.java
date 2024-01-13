@@ -46,4 +46,8 @@ public interface MainApi {
                                   @Part MultipartBody.Part image
     );
 
+    @GET("v1/news/")
+    Call<ArrayList<News>> getNews(@Header("Authorization") String accessToken);
+
+
 }

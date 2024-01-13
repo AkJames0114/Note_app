@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import androidx.annotation.Nullable;
 
 import com.example.noteapp.base.BaseActivity;
+import com.example.noteapp.databinding.ActivityNewsBinding;
 import com.example.noteapp.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
@@ -30,7 +31,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
             @Override
             public void run() {
                 if (!isLogin) {
-                    Intent intent = new Intent(SplashActivity.this, RegisterActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);

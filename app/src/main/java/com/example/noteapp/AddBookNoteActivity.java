@@ -1,8 +1,10 @@
 package com.example.noteapp;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.noteapp.base.BaseActivity;
 import com.example.noteapp.databinding.ActivityAddBookNoteBinding;
@@ -42,6 +46,9 @@ public class AddBookNoteActivity extends BaseActivity<ActivityAddBookNoteBinding
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.add_new_book_note_activity_title);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2000);
+        }
 
         if (getIntent().hasExtra("book_note")) {
             bookNote = (BookNote) getIntent().getSerializableExtra("book_note");
@@ -54,8 +61,8 @@ public class AddBookNoteActivity extends BaseActivity<ActivityAddBookNoteBinding
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                Intent intent = new Intent(Intent.ACTION_PICK);
+              // intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent, "SELECT PHOTOS"), 1000);
 
@@ -99,7 +106,7 @@ public class AddBookNoteActivity extends BaseActivity<ActivityAddBookNoteBinding
 
                             @Override
                             public void onFailure(Call<BookNote> call, Throwable t) {
-
+                                Log.d("Failed: ", t.getMessage() + "is created");
                             }
                         });
                     }
@@ -109,7 +116,6 @@ public class AddBookNoteActivity extends BaseActivity<ActivityAddBookNoteBinding
                     dataBaseHelper.updateBookNote(bookNote);
                     finish();
                 }
-                finish();
             }
         });
     }
@@ -118,9 +124,9 @@ public class AddBookNoteActivity extends BaseActivity<ActivityAddBookNoteBinding
         String path = null;
 
         String[] proj = {MediaStore.Images.Media.DATA};
-        //Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
-        CursorLoader cursorLoader=new CursorLoader(this, contentUri, proj, null,null,null);
-        Cursor cursor = cursorLoader.loadInBackground();
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+//        CursorLoader cursorLoader=new CursorLoader(this, contentUri, proj, null,null,null);
+//        Cursor cursor = cursorLoader.loadInBackground();
         if (cursor.moveToFirst()) {
             int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             path = cursor.getString(column_index);

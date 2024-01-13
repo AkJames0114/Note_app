@@ -94,4 +94,17 @@ public class News {
     public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
     }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", source='" + source + '\'' +
+                ", author='" + author + '\'' +
+                ", content='" + content + '\'' +
+                ", image_url='" + image_url + '\'' +
+                ", publishedAt='" + publishedAt + '\'' +
+                '}';
+    }
 }
