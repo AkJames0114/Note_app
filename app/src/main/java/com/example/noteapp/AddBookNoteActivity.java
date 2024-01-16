@@ -83,6 +83,8 @@ public class AddBookNoteActivity extends BaseActivity<ActivityAddBookNoteBinding
                 String title = binding.title.getText().toString();
                 String description = binding.content.getText().toString();
 
+
+
                 if (bookNote == null) {
 
                     bookNote = new BookNote();

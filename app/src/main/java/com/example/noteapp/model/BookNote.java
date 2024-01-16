@@ -28,9 +28,11 @@ public class BookNote implements Serializable {
         this.createdAt = createdAt;
     }
 
-    public BookNote(String title, String description) {
+    public BookNote(String title, String description, String image) {
         this.title = title;
         this.description = description;
+        this.image = image;
+
 
     }
 
@@ -93,7 +95,7 @@ public class BookNote implements Serializable {
                 '}';
     }
 
-    public static class BookNoteEntry{
+    public static class BookNoteEntry {
         public static String TABLE_NAME = "BOOK_NOTES";
         public static String ID = "ID";
         public static String TITLE = "TITLE";
@@ -107,19 +109,17 @@ public class BookNote implements Serializable {
         CONTENT TEXT NOT NULL,
         CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
         */
-        public static String createTableQuery()
-        {
-            String sql = "CREATE TABLE "+TABLE_NAME+" ( "+
-                    ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                    TITLE+" TITLE TEXT NOT NULL,"+
-                    CONTENT+" CONTENT TEXT NOT NULL,"+
-                    CREATED_AT+" CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+        public static String createTableQuery() {
+            String sql = "CREATE TABLE " + TABLE_NAME + " ( " +
+                    ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    TITLE + " TITLE TEXT NOT NULL," +
+                    CONTENT + " CONTENT TEXT NOT NULL," +
+                    CREATED_AT + " CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                     ");";
             return sql;
 
 
         }
-
 
 
     }

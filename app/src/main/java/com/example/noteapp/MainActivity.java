@@ -100,15 +100,15 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         }
     }
 
-    public void generateBookNotes() {
-
-        for (int i = 0; i < 5; i++) {
-            BookNote bookNote = new BookNote("Title " + (i + 1), "CONTENT " + (i + 1) + "; A plain text editor that allows you to keep notes throughout the day, create a list, write or edit code without worrying about unwanted auto formatting.");
-            Log.d("Book Note: ", bookNote.toString());
-            dataBaseHelper.addBookNote(bookNote);
-
-        }
-    }
+//    public void generateBookNotes() {
+//
+//        for (int i = 0; i < 5; i++) {
+//            BookNote bookNote = new BookNote("Title " + (i + 1), "CONTENT " + (i + 1) + "; A plain text editor that allows you to keep notes throughout the day, create a list, write or edit code without worrying about unwanted auto formatting.");
+//            Log.d("BookNote: ", bookNote.toString());
+//            dataBaseHelper.addBookNote(bookNote);
+//
+//        }
+//    }
 
     private void replaceFragment(int tabId) {
         selectedTab = tabId;

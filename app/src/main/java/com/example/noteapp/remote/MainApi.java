@@ -54,5 +54,5 @@ public interface MainApi {
     Call<ArrayList<News>> getNews(@Header("Authorization") String accessToken);
 
     @DELETE("v1/book/{id}/")
-    Call<JsonObject> deleteBookNote(@Header("Authorization") String accessToken, @Path("id") int id);
+    Call<JsonObject> deleteBookNote(@Header("Authorization") String accessToken, @Path("id") int id); // Deleting data by id and access token is used for Authorization.
 }
