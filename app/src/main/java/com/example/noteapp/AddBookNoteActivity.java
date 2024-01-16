@@ -17,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.noteapp.base.BaseActivity;
 import com.example.noteapp.databinding.ActivityAddBookNoteBinding;
 import com.example.noteapp.model.BookNote;
@@ -56,6 +58,11 @@ public class AddBookNoteActivity extends BaseActivity<ActivityAddBookNoteBinding
             setTitle("Edit Book_Note");
             binding.title.setText(bookNote.getTitle());
             binding.content.setText(bookNote.getDescription());
+
+            RequestOptions options = new RequestOptions();
+            options.centerCrop();
+
+            Glide.with(binding.getRoot()).load(bookNote.getImage()).apply(options).placeholder(R.drawable.ic_image).into(binding.loadImageBtn);
         }
         binding.loadImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
