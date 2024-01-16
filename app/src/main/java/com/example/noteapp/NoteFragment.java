@@ -73,7 +73,6 @@ public class NoteFragment extends BaseFragment<FragmentNotesBinding> {
                 Toast.makeText(getContext(), "Error fetching data", Toast.LENGTH_SHORT).show();
             }
         });
-        adapter.notifyDataSetChanged();
     }
 }
 

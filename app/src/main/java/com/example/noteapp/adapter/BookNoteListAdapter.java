@@ -1,13 +1,16 @@
 package com.example.noteapp.adapter;
 
 import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.example.noteapp.BookNoteDetailsActivity;
+import com.example.noteapp.R;
 import com.example.noteapp.base.BaseAdapter;
 import com.example.noteapp.base.BaseViewHolder;
 import com.example.noteapp.databinding.ItemBookNoteBinding;
@@ -17,7 +20,6 @@ import java.util.ArrayList;
 
 public class BookNoteListAdapter extends BaseAdapter {
 
-    private BookNote bookNote;
 
     private  ArrayList<BookNote> bookNoteArrayList;
 
@@ -38,7 +40,7 @@ public class BookNoteListAdapter extends BaseAdapter {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BookNote booknote = bookNoteArrayList.get(holder.getAdapterPosition());
+                BookNote bookNote = bookNoteArrayList.get(holder.getAdapterPosition());
                 Intent intent = new Intent(holder.itemView.getContext(), BookNoteDetailsActivity.class);
                /* intent.putExtra("id", noteArrayList.get(holder.getAdapterPosition()).getId());
                */
@@ -67,6 +69,7 @@ public class BookNoteListAdapter extends BaseAdapter {
             BookNote bookNote = bookNoteArrayList.get(position);
             binding.title.setText(bookNote.getTitle());
             binding.content.setText(bookNote.getDescription());
+
         }
     }
 }

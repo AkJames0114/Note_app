@@ -31,10 +31,6 @@
             android:exported="false" />
 
         <activity
-            android:name=".NewsActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
 

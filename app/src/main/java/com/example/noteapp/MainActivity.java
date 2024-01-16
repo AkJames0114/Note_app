@@ -26,6 +26,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     private NoteFragment noteFragment;
     private ProfileFragment profileFragment;
     private LibraryFragment libraryFragment;
+    private NewsFragment newsFragment;
     private int selectedTab = R.id.noteTab;
 
     @Override
@@ -36,7 +37,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.notes);
         binding.bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 return true;
             }
         });
-        replaceFragment(R.id.noteTab);
+        replaceFragment(R.id.newsTab);
         binding.addNoteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,6 +124,14 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 libraryFragment = new LibraryFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, libraryFragment).commit();
             setTitle("Library");
+
+        } else if ((tabId == R.id.newsTab)) {
+            binding.addNoteIcon.setVisibility(View.GONE);
+            if (newsFragment == null)
+                newsFragment = new NewsFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, newsFragment).commit();
+            setTitle("News");
+
         } else {
             binding.addNoteIcon.setVisibility(View.GONE);
             if (profileFragment == null)

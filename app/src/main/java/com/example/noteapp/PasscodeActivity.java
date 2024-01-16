@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.noteapp.base.BaseActivity;
-import com.example.noteapp.databinding.ActivityLoginBinding;
 import com.example.noteapp.databinding.ActivityPasscodeBinding;
 
 public class PasscodeActivity extends BaseActivity<ActivityPasscodeBinding> {
@@ -66,7 +65,7 @@ public class PasscodeActivity extends BaseActivity<ActivityPasscodeBinding> {
         if (!myPasscode.isEmpty() && !passcode.isEmpty()) {
             if (myPasscode.equals(passcode)) {
                 preferenceManager.setValue("isLogin", true);
-                Intent intent = new Intent(PasscodeActivity.this, NewsActivity.class);
+                Intent intent = new Intent(PasscodeActivity.this, NewsFragment.class);
                 startActivity(intent);
             }
         }

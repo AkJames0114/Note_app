@@ -34,6 +34,8 @@ public interface MainApi {
     // endpoint: v1/notes/
     @GET("v1/note/")
     Call<ArrayList<Note>> getNotes(@Header("Authorization") String accessToken);
+    @GET("v1/book/")
+    Call<ArrayList<BookNote>> getBookNotes(@Header("Authorization") String accessToken);
 
     @POST("v1/note/")
     Call<Note> createNote(@Header("Authorization") String accessToken, @Body Note note);
