@@ -55,4 +55,7 @@ public interface MainApi {
 
     @DELETE("v1/book/{id}/")
     Call<JsonObject> deleteBookNote(@Header("Authorization") String accessToken, @Path("id") int id); // Deleting data by id and access token is used for Authorization.
+
+    @DELETE("v1/note/{id}/")
+    Call<JsonObject> deleteNote(@Header("Authorization") String accessToken, @Path("id") int id); // Deleting data by id and access token is used for Authorization.
 }

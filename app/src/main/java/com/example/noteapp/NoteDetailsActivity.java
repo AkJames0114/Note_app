@@ -12,6 +12,11 @@ import androidx.annotation.Nullable;
 import com.example.noteapp.base.BaseActivity;
 import com.example.noteapp.databinding.ActivityNoteDetailsBinding;
 import com.example.noteapp.model.Note;
+import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NoteDetailsActivity extends BaseActivity<ActivityNoteDetailsBinding> {
 
@@ -73,10 +78,37 @@ public class NoteDetailsActivity extends BaseActivity<ActivityNoteDetailsBinding
             startActivity(intent);
 
             return true;
+
+        } else if (item.getItemId() == R.id.deleteBtn) {
+            deleteNote();
+            return true;
+
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
+    private void deleteNote() {
+        if (note != null){
+
+            String access_token = (String) preferenceManager.getValue(String.class, "access_token", "");
+            String bearer_token = "Bearer " + access_token;
+            Call<JsonObject> call = mainApi.deleteNote(bearer_token, note.getId());
+            call.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    if (response.isSuccessful()){
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
+        }
+    }
+
 
     @Override
     public boolean hasActionBar() {
