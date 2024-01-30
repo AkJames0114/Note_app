@@ -10,14 +10,14 @@ public class User {
     @SerializedName("email")
     private String email;
 
-    @SerializedName("password")
-    private String password;
+    @SerializedName("passcode")
+    private String passcode;
 
     @SerializedName("first_name")
-    private String first_name;
+    private String firstname;
 
     @SerializedName("last_name")
-    private String last_name;
+    private String lastname;
 
     @SerializedName("phoneNumber")
     private String phoneNumber;
@@ -31,29 +31,33 @@ public class User {
     @SerializedName("access_token")
     private String accessToken;
 
-    public User(String phoneNumber, String address) {
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-    }
-
-    public User(Integer id, String email, String password, String first_name, String last_name, String accessToken) {
+    public User(Integer id, String email, String passcode, String first_name, String last_name, String phoneNumber, String address, String deviceToken, String accessToken) {
         this.id = id;
         this.email = email;
-        this.password = password;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.passcode = passcode;
+        this.firstname = first_name;
+        this.lastname = last_name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.deviceToken = deviceToken;
         this.accessToken = accessToken;
     }
 
-    public User(String first_name, String last_name, String email, String password) {
+    public User(String email, String password) {
         this.email = email;
-        this.password = password;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.passcode = password;
+
     }
 
     public User() {
 
+    }
+
+    public User(String firstname, String lastname, String email, String passcode) {
+        this.email = email;
+        this.passcode = passcode;
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     public String getDeviceToken() {
@@ -97,27 +101,27 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return passcode;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String passcode) {
+        this.passcode = passcode;
     }
 
     public String getFirst_name() {
-        return first_name;
+        return firstname;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirst_name(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getLast_name() {
-        return last_name;
+        return lastname;
     }
 
     public void setLast_name(String last_name) {
-        this.last_name = last_name;
+        this.lastname = last_name;
     }
 
     public String getAccessToken() {
